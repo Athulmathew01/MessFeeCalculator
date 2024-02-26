@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %} Expenditure {% endblock %}
+
+{% block content %}
+    <div class="container py-5">
+        <a class="ml-auto bg-primary text-light btn float-right my-3" href="{% url 'calculate:exp_post' %}">Form</a>
+        
+        <h2 class="py-3">Total Amount</h2>
+        <p class="lead">Total Days &nbsp{{totaldays}}</p>
+        <p class="lead">Total <b>{{total}}</b></p>
+        
+
+        {% if balance < 0 %}
+            <p class="lead">You have to Pay <b>{{abs_balance}}</b></p>
+        {% else %}
+            <p class="lead"> The Balance Amount is <b>{{balance}}</b></p>
+        {% endif %}
+        <div class="d-flex justify-content-end w-100"><a href="{%url 'calculate:delete-all' %} " class="btn  btn-danger  ">Delete all</a></div>
+        <div class="table-responsive py-5">
+            <table border="1" class="table">
+                <thead>
+                    <tr class="text-center">
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>choice</th>
+                        <th>Deposit</th>
+                        <th>Option</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for value in values %}
+                    <tr class="text-center">
+                        <td>{{value.id}}</td>
+                        <td>{{value.date}}</td>
+                        <td>{{value.choice}}</td>
+                        <td>{{value.deposit}}</td>
+                        <td><a href="{%url 'calculate:delete-expense' value.id %} " class="btn  btn-danger">Delete</a></td>
+                        </tr>    
+                {% endfor%}
+                    </tbody>
+                </table>
+        </div>
+    </div>
+{% endblock %}

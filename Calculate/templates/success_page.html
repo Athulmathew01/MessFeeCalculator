@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Remove underline from links */
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="px-4 text-center">
+        <h1 >Success</h1>
+        <p>Your form has been submitted successfully.</p>
+        <a href= "{% url 'calculate:exp_post' %}" class="btn btn-primary"> Go Back to main Page</a>
+    </div>
+
+</body>
+</html>

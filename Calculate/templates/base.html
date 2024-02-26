@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}{% endblock %}</title>
+        
+        <link href= "{% static 'css/styles.css' %}" rel="stylesheet"> 
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+           <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Bootstrap Datepicker JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
+
+        <!-- Bootstrap Datepicker CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="content">
+            <nav class="nav nav-pills text-justify p-2 align-middle shadow">
+                <div class="d-flex justify-content-center align-items-center w-100 ">
+                    <img src="{% static 'images\Logo.jpg' %}" alt="Logo" width="65rem">
+                    <p class="text-center m-0 mr-auto px-2 text-xxl" >
+                        <span style="font-size:30px;" class="font-weight-bold">Aamees</span>
+                        <span class="text-sm"><sub>The taste of Kakkanad</sub></span>
+                    </p>
+                    <div class="w-50 d-flex justify-content-end align-items-center ml-auto">
+                        <p class="mr-3 mb-0">Welcome, {{ user.username }}😊</p>
+                        <a class="btn btn-primary" href="{% url 'calculate:logout' %}">Logout</a>
+                    </div>
+                    
+                </div>
+              </nav>
+
+            {% block content %}
+            
+            {%endblock%}
+        </div>
+
+    
+    </body>
+
+</html>

@@ -31,10 +31,10 @@
                     <img src="{% static 'images\Logo.jpg' %}" alt="Logo" width="65rem">
                     <p class="text-center m-0 mr-auto px-2 text-xxl" >
                         <span style="font-size:30px;" class="font-weight-bold">Aamees</span>
-                        <span class="text-sm"><sub>The taste of Kakkanad</sub></span>
+                        <span class="text-sm" style="white-space: nowrap;"><sub>The taste of Kakkanad</sub></span>
                     </p>
                     <div class="w-50 d-flex justify-content-end align-items-center ml-auto">
-                        <p class="mr-3 mb-0">Welcome, {{ user.username }}😊</p>
+                        <p class="d-none d-sm-block mr-3 mb-0 ">Welcome, {{ user.username}}😊</p>
                         <a class="btn btn-primary" href="{% url 'calculate:logout' %}">Logout</a>
                     </div>
                     

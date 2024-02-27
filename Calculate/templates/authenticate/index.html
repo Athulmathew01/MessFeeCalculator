@@ -22,20 +22,7 @@
             background-color: #f8f9fa;
             font-family: Arial, sans-serif;
         }
-        .jumbotron {
-            position: relative;
-            padding: 0;
-            margin: 50px auto;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        .jumbotron img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            transform: scale(1.1);
-        }
+     
         .glass-overlay {
             position: absolute;
             top: 0;
@@ -51,6 +38,31 @@
             justify-content: center;
             align-items: center; /* Adjusted to center align items */
         }
+      
+      
+      .jumbotron {
+          position: relative;
+          padding: 0;
+          margin: 50px auto;
+          overflow: hidden;
+          border-radius: 10px;
+      }
+      
+      .jumbotron img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+          transform: scale(1.1);
+      }
+      .text-background {
+          background-color: rgba(255, 255, 255, 0.5);
+          padding: 5em;
+          border-radius: 10px;
+          color: black;
+          margin: 10px;
+      }
+      
+       
         .navbar-brand {
             font-size: 24px;
             font-weight: bold;
@@ -90,7 +102,24 @@
           color:black;
           margin: 10px;
       }
-      
+       /* Media queries for mobile responsiveness */
+      @media (max-width: 768px) {
+          .jumbotron {
+              margin: 10px auto;
+          }
+          .jumbotron img {
+            width: fit-content;
+            height: 100vh;
+            object-fit: cover;
+            transform: scale(1.1);
+        }
+          .text-background {
+              padding: 2em;
+              height:100vh;
+              width:fit-content;
+          }
+      }
+    
     </style>
 </head>
 <body>

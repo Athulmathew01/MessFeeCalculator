@@ -3,32 +3,51 @@
 {% block title %}Fill the form{% endblock %}
 
 {% block content %}
-<div class="container py-5">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Your Expenses</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <style>
+    /* Optional customization styles (can be placed in a separate CSS file) */
+    .form-group {
+      margin-bottom: 1rem; /* Adjust as needed */
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
     <a class="w-1 bg-primary text-light btn float-right" href="{% url 'calculate:total_amount' %}">Total amount</a>
     <h2 class="mb-5">Track your expenses</h2>
-    <form method="post" action="{% url 'calculate:exp_post' %} " class="rounded p-4 border">
-        <div class = " d-flex flex-row ">
-            <div class="form-group d-flex flex-column justify-content-between py-1">
-                <label for="id_date" class = "font-weight-bold mt-2">Date</label>
-                <label for="id_choice"  class = "font-weight-bold py-2 ">Choice</label>
-                <label for="id_deposit"  class = "font-weight-bold ">Deposit</label>
-            </div>
-            <div class="form-group d-flex flex-column justify-content-between px-4 ">
-                <div class= "py-2 ">
-                    {{ form.date }}
-                </div>
-                <div class= "py-2">
-                    {{ form.choice }}   
-                </div>
-                <div class= "py-2">
-                    {{ form.deposit }}
-                </div>
-            </div>
+    <form method="post" action="{% url 'calculate:exp_post' %}" class="rounded p-4 border">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="id_date" class="font-weight-bold">Date</label>
+            {{ form.date }}
+          </div>
         </div>
-        {% csrf_token %}
-        <button type="submit" class="btn btn-success">Post the Amount</button>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="id_choice" class="font-weight-bold">Choice</label>
+            {{ form.choice }}
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="id_deposit" class="font-weight-bold">Deposit</label>
+            {{ form.deposit }}
+          </div>
+        </div>
+      </div>
+      {% csrf_token %}
+      <button type="submit" class="btn btn-success">Post the Amount</button>
     </form>
-    {% comment %} <p class="text-danger"><sub>* Also pass the carry-forward amount as a deposit</sub></p>  {% endcomment %}
-</div>
-{{ form.media }}
+  </div>
+  {{ form.media }}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jC3zQS1rTN5t4ZVj9C7aGk1O1vVOU" crossorigin="anonymous"></script>
+</body>
+</html>
 {% endblock %}
